@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Karina Caminha | Nutricionista e Mentora de Nutris</title>
+<meta name="description" content="Acompanhamento nutricional para mulheres em João Pessoa e online, com Karina Caminha, Nutricionista especialista em Nutrição Estética Feminina.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500;1,600&family=Lato:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --white:#FFFFFF;
+    --rose-bg:#FBF3F1;
+    --rose:#EFD9D6;
+    --rose-deep:#D9A8A6;
+    --gold:#B08D57;
+    --gold-light:#D9BE93;
+    --gold-deep:#8C6A3A;
+    --ink:#2E2A28;
+    --ink-soft:#5C534E;
+    --line:rgba(176,141,87,0.28);
+    --max:1180px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Lato',sans-serif;
+    color:var(--ink);
+    background:var(--white);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.serif{font-family:'Cormorant Garamond',serif;}
+  a{text-decoration:none;color:inherit;}
+  img{display:block;max-width:100%;}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 28px;}
+  .eyebrow{
+    font-family:'Lato',sans-serif;
+    font-size:12px;
+    letter-spacing:.24em;
+    text-transform:uppercase;
+    color:var(--gold-deep);
+    font-weight:700;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+  }
+  .eyebrow::before{content:"";width:22px;height:1px;background:var(--gold);display:inline-block;}
+  section{position:relative;}
+
+  /* ---------- TEXTURE ---------- */
+  .grain-rose{
+    background-color:var(--rose-bg);
+    background-image:
+      radial-gradient(circle at 18% 20%, rgba(176,141,87,0.07) 0, transparent 40%),
+      radial-gradient(circle at 85% 75%, rgba(176,141,87,0.06) 0, transparent 45%);
+  }
+
+  /* ---------- ORNAMENTAL DIVIDER ---------- */
+  .ornament{
+    display:flex;align-items:center;justify-content:center;gap:14px;
+    margin:0 auto;padding:0;
+  }
+  .ornament .l{height:1px;width:60px;background:linear-gradient(90deg, transparent, var(--gold-light));}
+  .ornament .r{height:1px;width:60px;background:linear-gradient(90deg, var(--gold-light), transparent);}
+  .ornament svg{color:var(--gold);flex-shrink:0;}
+
+  /* ---------- SCROLL REVEAL ---------- */
+  .reveal{opacity:0;transform:translateY(32px);transition:opacity .9s cubic-bezier(.22,1,.36,1), transform .9s cubic-bezier(.22,1,.36,1);will-change:opacity,transform;}
+  .reveal.in{opacity:1;transform:translateY(0);}
+  .reveal-scale{opacity:0;transform:scale(.94);transition:opacity 1s ease, transform 1s cubic-bezier(.22,1,.36,1);will-change:opacity,transform;}
+  .reveal-scale.in{opacity:1;transform:scale(1);}
+
+  .split-word{
+    display:inline-block;
+    opacity:0;
+    transform:translateY(100%) rotate(1deg);
+    transition:opacity .7s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1);
+    transition-delay:calc(var(--i) * 45ms);
+  }
+  .split-line{display:inline-block;overflow:hidden;padding-bottom:.08em;}
+  .split-parent.in .split-word{opacity:1;transform:translateY(0) rotate(0);}
+
+  .fade-up{opacity:0;transform:translateY(18px);transition:opacity .8s ease, transform .8s ease;transition-delay:calc(var(--d,0)*90ms);}
+  .fade-up.in{opacity:1;transform:translateY(0);}
+
+  /* ---------- HEADER ---------- */
+  header{
+    position:sticky;top:0;z-index:60;
+    background:rgba(255,255,255,0.88);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:16px 28px;max-width:var(--max);margin:0 auto;}
+  .logo{font-family:'Cormorant Garamond',serif;font-size:23px;font-weight:600;letter-spacing:.03em;}
+  .logo span{color:var(--gold);font-style:italic;}
+  nav ul{list-style:none;display:flex;gap:30px;}
+  nav ul li a{font-size:13.5px;font-weight:600;color:var(--ink-soft);letter-spacing:.02em;transition:color .25s;position:relative;}
+  nav ul li a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:1px;background:var(--gold);transition:width .3s;}
+  nav ul li a:hover{color:var(--ink);}
+  nav ul li a:hover::after{width:100%;}
+  .nav-cta{
+    display:inline-flex;align-items:center;gap:8px;
+    background:linear-gradient(135deg, var(--ink) 0%, #453f3b 100%);color:#fff;padding:11px 22px;border-radius:30px;
+    font-size:13px;font-weight:700;letter-spacing:.03em;
+    transition:background .3s, transform .3s, box-shadow .3s;
+    white-space:nowrap;
+    box-shadow:0 6px 16px rgba(46,42,40,0.16);
+  }
+  .nav-cta:hover{background:linear-gradient(135deg, var(--gold-deep) 0%, var(--gold) 100%);transform:translateY(-1px);}
+  .burger{display:none;background:none;border:none;font-size:24px;cursor:pointer;color:var(--ink);}
+
+  @media(max-width:880px){
+    nav ul{display:none;}
+    .nav-cta{display:none;}
+    .burger{display:block;}
+    #mobile-menu.open{
+      display:flex;flex-direction:column;gap:0;
+      position:fixed;top:64px;left:0;right:0;background:#fff;
+      border-bottom:1px solid var(--line);
+      padding:8px 28px 20px;
+      box-shadow:0 12px 24px rgba(0,0,0,0.06);
+    }
+    #mobile-menu{display:none;}
+    #mobile-menu a{padding:12px 0;font-size:15px;font-weight:600;border-bottom:1px solid #f1e9e6;}
+    #mobile-menu .nav-cta{display:inline-flex;margin-top:14px;justify-content:center;}
+  }
+  #mobile-menu{display:none;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    background:
+      radial-gradient(ellipse 900px 520px at 50% -10%, rgba(176,141,87,0.10), transparent 60%),
+      radial-gradient(circle 380px at 88% 30%, rgba(217,168,166,0.20), transparent 70%),
+      radial-gradient(circle 320px at 6% 78%, rgba(217,168,166,0.16), transparent 70%),
+      linear-gradient(180deg,var(--rose-bg) 0%, #fff 100%);
+    padding:70px 0 96px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero-grid{
+    display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;
+  }
+  .hero-badge{
+    display:inline-flex;align-items:center;gap:9px;
+    border:1px solid var(--line);border-radius:30px;padding:8px 18px;
+    font-size:12px;letter-spacing:.08em;color:var(--ink-soft);
+    background:#fff;
+    margin-bottom:28px;
+    box-shadow:0 4px 14px rgba(176,141,87,0.10);
+  }
+  .hero-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 3px rgba(176,141,87,0.18);}
+  .hero h1{
+    font-size:clamp(34px,4.6vw,60px);
+    font-weight:600;line-height:1.16;color:var(--ink);
+    margin-bottom:24px;
+  }
+  .hero h1 em{font-style:italic;color:var(--gold-deep);}
+  .hero p.lead{
+    font-size:17.5px;color:var(--ink-soft);max-width:480px;margin-bottom:36px;
+  }
+  .cta-row{display:flex;flex-wrap:wrap;gap:16px;margin-bottom:42px;}
+  .btn-primary{
+    background:linear-gradient(135deg, var(--ink) 0%, #453f3b 100%);color:#fff;padding:17px 32px;border-radius:40px;
+    font-weight:700;font-size:14.5px;letter-spacing:.03em;
+    display:inline-flex;align-items:center;gap:10px;
+    transition:background .35s,transform .3s,box-shadow .35s;
+    box-shadow:0 14px 28px rgba(46,42,40,0.20);
+    position:relative;
+    overflow:hidden;
+  }
+  .btn-primary::before{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(135deg, var(--gold-deep) 0%, var(--gold) 50%, var(--gold-light) 100%);
+    opacity:0;transition:opacity .35s;
+  }
+  .btn-primary span, .btn-primary svg{position:relative;z-index:1;}
+  .btn-primary:hover::before{opacity:1;}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 18px 34px rgba(176,141,87,0.32);}
+  .btn-ghost{
+    padding:17px 26px;font-weight:700;font-size:14.5px;color:var(--ink);
+    border-bottom:1.5px solid var(--gold);
+    display:inline-flex;align-items:center;
+    transition:opacity .3s, border-color .3s;
+  }
+  .btn-ghost:hover{opacity:.65;border-color:var(--gold-deep);}
+  .trust-row{display:flex;flex-wrap:wrap;gap:26px 36px;}
+  .trust-item{display:flex;align-items:center;gap:9px;font-size:13.5px;color:var(--ink-soft);font-weight:600;}
+  .trust-item .num{font-family:'Cormorant Garamond',serif;font-size:23px;color:var(--gold-deep);font-weight:600;}
+
+  .hero-photo-wrap{position:relative;}
+  .hero-photo-wrap::before{
+    content:"";position:absolute;width:120%;height:120%;top:-10%;left:-10%;
+    background:radial-gradient(circle, rgba(217,168,166,0.35) 0%, transparent 65%);
+    z-index:-2;filter:blur(6px);
+  }
+  .hero-photo-frame{
+    position:relative;border-radius:6px 6px 70px 6px;overflow:hidden;
+    aspect-ratio:4/5;
+    box-shadow:0 40px 70px -20px rgba(46,42,40,0.30), 0 0 0 10px rgba(239,217,214,0.55);
+  }
+  .hero-photo-frame img{width:100%;height:100%;object-fit:cover;}
+  .hero-photo-frame::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg, transparent 60%, rgba(46,42,40,0.18) 100%);
+  }
+  .hero-ring{
+    position:absolute;border:1px solid var(--gold-light);border-radius:6px 6px 70px 6px;
+    top:20px;left:20px;right:-20px;bottom:-20px;z-index:-1;
+  }
+  .hero-corner{
+    position:absolute;width:34px;height:34px;border-top:1.5px solid var(--gold);border-left:1.5px solid var(--gold);
+    top:-14px;left:-14px;z-index:2;
+  }
+  .hero-quote-card{
+    position:absolute;left:-22px;bottom:-28px;background:linear-gradient(160deg,#fff 60%, var(--rose-bg) 130%);
+    border-radius:16px;padding:20px 24px;max-width:290px;
+    box-shadow:0 24px 50px rgba(217,168,166,0.30);
+    border:1px solid var(--rose-deep);
+  }
+  .hero-quote-card::before{content:"“";position:absolute;top:-6px;left:14px;font-family:'Cormorant Garamond',serif;font-size:52px;color:var(--gold-light);line-height:1;}
+  .hero-quote-card p{font-family:'Cormorant Garamond',serif;font-size:17.5px;font-style:italic;color:var(--ink);line-height:1.4;position:relative;z-index:1;}
+  @media(max-width:940px){
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-photo-wrap{order:-1;max-width:340px;margin:0 auto 30px;}
+    .hero-quote-card{display:none;}
+  }
+
+  /* ---------- SECTION HEADINGS ---------- */
+  .sec-head{max-width:660px;margin-bottom:54px;}
+  .sec-head.center{margin-left:auto;margin-right:auto;text-align:center;}
+  .sec-head h2{font-size:clamp(28px,3.4vw,44px);font-weight:600;margin-top:14px;color:var(--ink);line-height:1.22;}
+  .rule{width:46px;height:1.5px;background:linear-gradient(90deg, var(--gold-deep), var(--gold-light));margin:20px 0;}
+  .rule.center{margin-left:auto;margin-right:auto;}
+
+  /* ---------- ABOUT ---------- */
+  .about{padding:110px 0;}
+  .about-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:68px;align-items:center;}
+  .about-photo{position:relative;}
+  .about-photo-glow{
+    content:"";position:absolute;width:70%;height:70%;top:15%;left:15%;z-index:-3;
+    background:radial-gradient(circle, rgba(217,168,166,0.35), transparent 70%);filter:blur(14px);
+  }
+  .about-photo img{border-radius:6px 70px 6px 6px;width:100%;object-fit:cover;aspect-ratio:3/4;box-shadow:0 40px 70px -24px rgba(217,168,166,0.30);}
+  .about-photo::before{
+    content:"";position:absolute;top:-18px;right:-18px;bottom:18px;left:18px;
+    border:1px solid var(--gold-light);border-radius:6px 70px 6px 6px;z-index:-1;
+  }
+  .about-photo::after{
+    content:"";position:absolute;width:36px;height:36px;bottom:-16px;left:-16px;
+    border-bottom:1.5px solid var(--gold);border-left:1.5px solid var(--gold);
+  }
+  .about-text p{color:var(--ink-soft);margin-bottom:18px;font-size:15.5px;}
+  .quote-block{
+    border-left:2px solid var(--rose-deep);padding:14px 22px 14px 26px;margin:34px 0;position:relative;
+    background:linear-gradient(90deg, rgba(217,168,166,0.12), transparent 70%);
+    border-radius:0 10px 10px 0;
+  }
+  .quote-block p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:25px;color:var(--ink);line-height:1.42;}
+
+  /* ---------- SERVICES ---------- */
+  .services{padding:110px 0;}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+  .card{
+    background:#fff;border-radius:16px;padding:40px 32px;
+    border:1px solid var(--line);
+    border-top:2.5px solid var(--rose-deep);
+    display:flex;flex-direction:column;gap:18px;
+    transition:transform .4s cubic-bezier(.22,1,.36,1), box-shadow .4s;
+    position:relative;
+  }
+  .card:hover{transform:translateY(-8px);box-shadow:0 30px 50px -14px rgba(217,168,166,0.28);}
+  .card.featured{border:1px solid var(--gold);box-shadow:0 20px 40px -18px rgba(176,141,87,0.30);}
+  .card.featured::before{
+    content:"Foco principal";position:absolute;top:-13px;left:32px;
+    background:linear-gradient(135deg, var(--gold-deep), var(--gold));color:#fff;font-size:11px;font-weight:700;letter-spacing:.06em;
+    padding:6px 14px;border-radius:20px;box-shadow:0 6px 14px rgba(176,141,87,0.35);
+  }
+  .icon-badge{
+    width:54px;height:54px;border-radius:50%;background:linear-gradient(150deg,var(--rose-bg) 0%, #fff 100%);
+    display:flex;align-items:center;justify-content:center;color:var(--gold-deep);
+    border:1px solid var(--rose-deep);
+    box-shadow:0 8px 18px rgba(217,168,166,0.22);
+  }
+  .card.featured .icon-badge{background:linear-gradient(135deg,#F7ECE3,#fff);border-color:var(--gold-light);}
+  .card h3{font-size:22px;font-weight:600;}
+  .card p{color:var(--ink-soft);font-size:14.5px;flex-grow:1;}
+  .card-link{font-size:13.5px;font-weight:700;color:var(--ink);display:inline-flex;align-items:center;gap:6px;border-bottom:1.5px solid var(--gold);align-self:flex-start;transition:opacity .3s;}
+  .card-link:hover{opacity:.6;}
+  @media(max-width:900px){.cards{grid-template-columns:1fr;}}
+
+  /* ---------- DIFERENCIAIS ---------- */
+  .diff{padding:110px 0;}
+  .diff-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;margin-top:14px;}
+  .diff-item{padding-top:24px;border-top:2px solid transparent;border-image:linear-gradient(90deg, var(--rose-deep), var(--gold-light)) 1;transition:transform .4s;}
+  .diff-item:hover{transform:translateY(-4px);}
+  .diff-item h3{font-size:19px;font-weight:600;margin:16px 0 10px;}
+  .diff-item p{color:var(--ink-soft);font-size:14px;}
+  @media(max-width:900px){.diff-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:560px){.diff-grid{grid-template-columns:1fr;}}
+
+  /* ---------- COMO FUNCIONA ---------- */
+  .how{padding:110px 0;}
+  .how-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;margin-top:24px;}
+  .how-steps::before{
+    content:"";position:absolute;top:27px;left:6%;right:6%;height:1px;background:linear-gradient(90deg, transparent, var(--gold-light) 15%, var(--gold-light) 85%, transparent);
+  }
+  .step{text-align:center;padding:0 16px;position:relative;}
+  .step-num{
+    width:54px;height:54px;border-radius:50%;background:linear-gradient(150deg,#fff 60%,var(--rose-bg) 130%);border:1.5px solid var(--gold);
+    display:flex;align-items:center;justify-content:center;margin:0 auto 22px;
+    font-family:'Cormorant Garamond',serif;font-size:23px;color:var(--gold-deep);font-weight:600;
+    position:relative;z-index:2;
+    box-shadow:0 10px 20px rgba(217,168,166,0.28);
+  }
+  .step h3{font-size:17px;font-weight:700;margin-bottom:8px;}
+  .step p{font-size:13.5px;color:var(--ink-soft);}
+  .how-note{text-align:center;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:20px;color:var(--ink);margin:54px auto 38px;max-width:560px;}
+  .how-cta{display:flex;justify-content:center;}
+  @media(max-width:900px){
+    .how-steps{grid-template-columns:1fr;gap:36px;}
+    .how-steps::before{display:none;}
+  }
+
+  /* ---------- FAQ ---------- */
+  .faq{padding:110px 0;}
+  .faq-list{max-width:760px;margin:0 auto;}
+  .faq-item{border-bottom:1px solid var(--line);}
+  .faq-q{
+    width:100%;text-align:left;background:none;border:none;cursor:pointer;
+    padding:26px 0;display:flex;justify-content:space-between;align-items:center;gap:20px;
+    font-family:'Cormorant Garamond',serif;font-size:19.5px;font-weight:600;color:var(--ink);
+  }
+  .faq-q .plus{
+    flex-shrink:0;width:27px;height:27px;border-radius:50%;border:1px solid var(--gold);
+    display:flex;align-items:center;justify-content:center;color:var(--gold-deep);
+    transition:transform .35s, background .35s, color .35s;font-size:15px;
+  }
+  .faq-item.open .faq-q .plus{transform:rotate(135deg);background:var(--gold);color:#fff;}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .45s ease;}
+  .faq-a p{padding-bottom:26px;color:var(--ink-soft);font-size:14.5px;max-width:660px;}
+
+  /* ---------- CTA FINAL ---------- */
+  .final-cta{
+    padding:110px 0;
+    background:linear-gradient(135deg,var(--rose) 0%, var(--rose-bg) 100%);
+    text-align:center;position:relative;overflow:hidden;
+  }
+  .final-cta::before, .final-cta::after{
+    content:"";position:absolute;border:1px solid var(--rose-deep);border-radius:50%;
+  }
+  .final-cta::before{width:240px;height:240px;top:-100px;left:-80px;background:radial-gradient(circle, rgba(217,168,166,0.18), transparent 70%);}
+  .final-cta::after{width:180px;height:180px;bottom:-90px;right:-50px;background:radial-gradient(circle, rgba(217,168,166,0.18), transparent 70%);}
+  .final-cta h2{font-size:clamp(28px,4vw,46px);font-weight:600;margin-bottom:20px;position:relative;}
+  .final-cta p{color:var(--ink-soft);max-width:520px;margin:0 auto 36px;position:relative;font-size:16px;}
+  .final-support{margin-top:22px;font-size:13.5px;color:var(--ink-soft);position:relative;}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:linear-gradient(180deg, var(--ink) 0%, #241f1d 100%);color:#EDE6E2;padding:70px 0 30px;position:relative;}
+  footer::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg, var(--rose-deep), var(--gold-light), var(--rose-deep));}
+  .footer-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:44px;margin-bottom:44px;}
+  footer h4{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:#fff;margin-bottom:18px;}
+  footer p, footer a{font-size:13.5px;color:#C9BFB9;line-height:1.95;}
+  footer a{transition:color .3s;}
+  footer a:hover{color:var(--gold-light);}
+  .footer-bottom{border-top:1px solid rgba(255,255,255,0.12);padding-top:24px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:12.5px;color:#9C928C;}
+  @media(max-width:760px){.footer-grid{grid-template-columns:1fr;}}
+
+  /* ---------- WHATSAPP FLOAT ---------- */
+  .wa-float{
+    position:fixed;right:22px;bottom:22px;z-index:80;
+    width:62px;height:62px;border-radius:50%;
+    background:#25D366;display:flex;align-items:center;justify-content:center;
+    box-shadow:0 14px 30px rgba(37,211,102,0.42), 0 0 0 6px rgba(217,168,166,0.30);
+    animation:pulse 2.6s infinite;
+    border:2px solid rgba(255,255,255,0.6);
+  }
+  @keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(37,211,102,0.45), 0 14px 30px rgba(37,211,102,0.35);}
+    70%{box-shadow:0 0 0 14px rgba(37,211,102,0), 0 14px 30px rgba(37,211,102,0.35);}
+    100%{box-shadow:0 0 0 0 rgba(37,211,102,0), 0 14px 30px rgba(37,211,102,0.35);}
+  }
+  @media(prefers-reduced-motion: reduce){
+    .wa-float{animation:none;}
+    .reveal, .reveal-scale, .split-word, .fade-up{transition:none;opacity:1;transform:none;}
+  }
+
+  :focus-visible{outline:2px solid var(--gold);outline-offset:3px;}
+
+  @media(max-width:900px){.about-grid{grid-template-columns:1fr;} .about-photo{max-width:340px;margin:0 auto;}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a href="#inicio" class="logo">Karina <span>Caminha</span></a>
+    <nav>
+      <ul>
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#diferenciais">Diferenciais</a></li>
+        <li><a href="#como-funciona">Como funciona</a></li>
+        <li><a href="#duvidas">Dúvidas</a></li>
+      </ul>
+    </nav>
+    <a class="nav-cta" id="nav-wa" href="#" target="_blank" rel="noopener"><span>Falar no WhatsApp</span></a>
+    <button class="burger" id="burger" aria-label="Abrir menu">☰</button>
+  </div>
+  <div id="mobile-menu">
+    <a href="#inicio">Início</a>
+    <a href="#sobre">Sobre</a>
+    <a href="#servicos">Serviços</a>
+    <a href="#diferenciais">Diferenciais</a>
+    <a href="#como-funciona">Como funciona</a>
+    <a href="#duvidas">Dúvidas</a>
+    <a class="nav-cta" id="nav-wa-mobile" href="#" target="_blank" rel="noopener"><span>Falar no WhatsApp</span></a>
+  </div>
+</header>
+
+<section class="hero" id="inicio">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="hero-badge reveal"><span class="dot"></span> Nutricionista • 7 anos de experiência</div>
+      <h1 class="split-parent">Um acompanhamento nutricional pensado para a mulher que quer <em>cuidar de si</em> com mais confiança.</h1>
+      <p class="lead fade-up" style="--d:2;">Um plano que respeita a sua rotina, os seus objetivos e a sua individualidade — construído com estratégia, acolhimento e responsabilidade.</p>
+      <div class="cta-row fade-up" style="--d:3;">
+        <a href="#" id="hero-wa-primary" target="_blank" rel="noopener" class="btn-primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.38 5.07L2 22l5.06-1.33A9.94 9.94 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2Zm0 18c-1.6 0-3.09-.44-4.36-1.2l-.31-.19-3.01.79.8-2.93-.2-.3A7.94 7.94 0 0 1 4 12c0-4.41 3.59-8 8-8s8 3.59 8 8-3.59 8-8 8Zm4.36-5.86c-.24-.12-1.43-.71-1.65-.79-.22-.08-.38-.12-.55.12-.16.24-.63.79-.77.95-.14.16-.28.18-.52.06-.24-.12-1.01-.37-1.92-1.19-.71-.63-1.19-1.42-1.33-1.66-.14-.24-.01-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.32-.75-1.81-.2-.48-.4-.41-.55-.42h-.47c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.12 3.64.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.43-.58 1.63-1.15.2-.56.2-1.04.14-1.15-.06-.1-.22-.16-.46-.28Z" fill="white"/></svg>
+          <span>Agendar conversa no WhatsApp</span>
+        </a>
+        <a href="#servicos" class="btn-ghost">Conhecer o acompanhamento →</a>
+      </div>
+      <div class="trust-row fade-up" style="--d:4;">
+        <div class="trust-item"><span class="num">+780</span> pacientes atendidas</div>
+        <div class="trust-item">Atendimento em <strong>João Pessoa</strong> e online</div>
+        <div class="trust-item">Nutrição Estética Feminina</div>
+      </div>
+    </div>
+    <div class="hero-photo-wrap">
+      <div class="hero-ring"></div>
+      <div class="hero-photo-frame reveal-scale">
+        <div class="hero-corner"></div>
+        <img src="img/hero.jpg" alt="Karina Caminha, nutricionista, sorrindo">
+      </div>
+      <div class="hero-quote-card fade-up" style="--d:5;">
+        <p>“A minha maior missão é o sucesso do seu objetivo.”</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about grain-rose" id="sobre">
+  <div class="wrap about-grid">
+    <div class="about-photo reveal-scale">
+      <div class="about-photo-glow"></div>
+      <img src="img/about.jpg" alt="Karina Caminha em ambiente profissional">
+    </div>
+    <div class="about-text">
+      <span class="eyebrow reveal">Sobre Karina</span>
+      <h2 class="split-parent" style="margin-top:12px;">Nutrição com estratégia, acolhimento e propósito.</h2>
+      <div class="rule reveal" style="--d:1;"></div>
+      <p class="fade-up" style="--d:2;">Nutricionista formada pela Universidade Federal da Paraíba, com ênfase em Nutrição Estética Feminina, Karina soma 7 anos de consultório e mais de 780 pacientes atendidas.</p>
+      <p class="fade-up" style="--d:3;">Sua visão é humanizada: acredita que saúde e estética devem respeitar o momento, o corpo e a rotina de cada mulher — sem fórmulas prontas e sem promessas vazias. Também atua na mentoria de nutricionistas, apoiando profissionais que desejam crescer no empreendedorismo, na gestão de carreira e no consultório.</p>
+      <div class="quote-block fade-up" style="--d:4;">
+        <p>“A minha maior missão é o sucesso do seu objetivo.”</p>
+      </div>
+      <a href="#" class="hero-wa-secondary btn-primary fade-up" style="--d:5;display:inline-flex;" target="_blank" rel="noopener"><span>Quero falar com a Karina</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="servicos">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow reveal">Serviços</span>
+      <h2 class="split-parent center-split">Como Karina pode te acompanhar</h2>
+    </div>
+    <div class="cards">
+      <div class="card featured reveal" style="--d:1;">
+        <div class="icon-badge">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-4.5-9.5-9C.7 8 2 4 6 3.6c2.2-.2 3.8 1 4.5 2.4C11.2 4.6 12.8 3.4 15 3.6c4 .4 5.3 4.4 3.5 8.4C16 16.5 12 21 12 21Z"/></svg>
+        </div>
+        <h3>Consulta nutricional para mulheres</h3>
+        <p>Planejamento alimentar personalizado e acompanhamento alinhado à sua rotina e aos seus objetivos.</p>
+        <a href="#" class="wa-link card-link" data-wa-message="Olá, Karina! Gostaria de saber mais sobre a consulta nutricional para mulheres." target="_blank" rel="noopener">Saber mais pelo WhatsApp →</a>
+      </div>
+      <div class="card reveal" style="--d:2;">
+        <div class="icon-badge">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        </div>
+        <h3>Nutrição Estética Feminina</h3>
+        <p>Estratégia nutricional voltada ao bem-estar, saúde e objetivos estéticos, sempre com responsabilidade.</p>
+        <a href="#" class="wa-link card-link" data-wa-message="Olá, Karina! Gostaria de saber mais sobre o acompanhamento em Nutrição Estética Feminina." target="_blank" rel="noopener">Saber mais pelo WhatsApp →</a>
+      </div>
+      <div class="card reveal" style="--d:3;">
+        <div class="icon-badge">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 19V5a2 2 0 0 1 2-2h9l5 5v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"/><path d="M14 3v5h5"/></svg>
+        </div>
+        <h3>Mentoria para Nutricionistas</h3>
+        <p>Orientação para profissionais que desejam desenvolver posicionamento, gestão de carreira, empreendedorismo e resultados no consultório.</p>
+        <a href="#" class="wa-link card-link" data-wa-message="Olá, Karina! Gostaria de saber mais sobre a Mentoria para Nutricionistas." target="_blank" rel="noopener">Saber mais pelo WhatsApp →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="diff grain-rose" id="diferenciais">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow reveal">Diferenciais</span>
+      <h2 class="split-parent">Mais do que uma dieta: um plano possível para a sua vida.</h2>
+    </div>
+    <div class="diff-grid">
+      <div class="diff-item reveal" style="--d:1;">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#8C6A3A" stroke-width="1.5"><path d="M12 21s-7-4.5-9.5-9C.7 8 2 4 6 3.6c2.2-.2 3.8 1 4.5 2.4C11.2 4.6 12.8 3.4 15 3.6c4 .4 5.3 4.4 3.5 8.4C16 16.5 12 21 12 21Z"/></svg>
+        <h3>Atendimento individualizado</h3>
+        <p>Estratégia construída de acordo com necessidades, rotina e metas.</p>
+      </div>
+      <div class="diff-item reveal" style="--d:2;">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#8C6A3A" stroke-width="1.5"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg>
+        <h3>Experiência prática</h3>
+        <p>7 anos de consultório e mais de 780 pacientes atendidas.</p>
+      </div>
+      <div class="diff-item reveal" style="--d:3;">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#8C6A3A" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6 8-6s8 2 8 6"/></svg>
+        <h3>Olhar feminino e acolhedor</h3>
+        <p>Compreensão das particularidades e desafios da rotina feminina.</p>
+      </div>
+      <div class="diff-item reveal" style="--d:4;">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#8C6A3A" stroke-width="1.5"><path d="M4 4v16h16"/><path d="M8 15l3-4 3 3 4-6"/></svg>
+        <h3>Acompanhamento estratégico</h3>
+        <p>Orientação clara para favorecer constância e escolhas mais conscientes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="how" id="como-funciona">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow reveal">Como funciona</span>
+      <h2 class="split-parent center-split">Seu cuidado começa com uma conversa.</h2>
+    </div>
+    <div class="how-steps">
+      <div class="step reveal" style="--d:1;">
+        <div class="step-num">1</div>
+        <h3>Você chama no WhatsApp</h3>
+        <p>Dá o primeiro passo com uma mensagem simples e sem compromisso.</p>
+      </div>
+      <div class="step reveal" style="--d:2;">
+        <div class="step-num">2</div>
+        <h3>Entendemos sua necessidade</h3>
+        <p>A equipe orienta sobre o melhor atendimento para o seu momento.</p>
+      </div>
+      <div class="step reveal" style="--d:3;">
+        <div class="step-num">3</div>
+        <h3>A consulta é agendada</h3>
+        <p>Você escolhe o formato — presencial em João Pessoa ou online.</p>
+      </div>
+      <div class="step reveal" style="--d:4;">
+        <div class="step-num">4</div>
+        <h3>Seu acompanhamento começa</h3>
+        <p>Um plano nutricional personalizado, construído com você.</p>
+      </div>
+    </div>
+    <p class="how-note reveal">Cada processo respeita a individualidade da paciente — sem fórmulas prontas, sem pressa.</p>
+    <div class="how-cta reveal">
+      <a href="#" class="wa-link btn-primary" target="_blank" rel="noopener"><span>Dar o primeiro passo no WhatsApp</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="faq grain-rose" id="duvidas">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow reveal">Dúvidas frequentes</span>
+      <h2 class="split-parent center-split">Perguntas que podem estar na sua cabeça</h2>
+    </div>
+    <div class="faq-list" id="faq-list">
+      <div class="faq-item reveal" style="--d:1;">
+        <button class="faq-q">O atendimento é apenas presencial? <span class="plus">+</span></button>
+        <div class="faq-a"><p>Há atendimento presencial em João Pessoa e possibilidade de atendimento online, conforme disponibilidade.</p></div>
+      </div>
+      <div class="faq-item reveal" style="--d:2;">
+        <button class="faq-q">A consulta é indicada para quem quer emagrecer? <span class="plus">+</span></button>
+        <div class="faq-a"><p>Sim, desde que o foco seja saúde, hábitos e uma estratégia personalizada, sem fórmulas prontas.</p></div>
+      </div>
+      <div class="faq-item reveal" style="--d:3;">
+        <button class="faq-q">Vou receber uma dieta restritiva? <span class="plus">+</span></button>
+        <div class="faq-a"><p>O plano é construído de forma individual, considerando rotina, preferências, necessidades e objetivos.</p></div>
+      </div>
+      <div class="faq-item reveal" style="--d:4;">
+        <button class="faq-q">Como faço para agendar? <span class="plus">+</span></button>
+        <div class="faq-a"><p>Basta clicar em um dos botões de WhatsApp da página para receber as orientações.</p></div>
+      </div>
+      <div class="faq-item reveal" style="--d:5;">
+        <button class="faq-q">Karina atende nutricionistas? <span class="plus">+</span></button>
+        <div class="faq-a"><p>Sim, também oferece mentoria para nutricionistas interessadas em empreendedorismo, gestão de carreira e crescimento no consultório.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta">
+  <div class="wrap">
+    <span class="eyebrow reveal" style="justify-content:center;">Contato</span>
+    <h2 class="split-parent center-split">Seu objetivo merece um plano feito para você.</h2>
+    <p class="fade-up" style="--d:2;">Converse com Karina Caminha e entenda qual acompanhamento faz sentido para o seu momento.</p>
+    <a href="#" class="wa-link btn-primary fade-up" style="--d:3;" target="_blank" rel="noopener"><span>Falar com Karina no WhatsApp</span></a>
+    <div class="final-support fade-up" style="--d:4;">Atendimento em João Pessoa e online.</div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid reveal">
+      <div>
+        <h4>Karina Caminha</h4>
+        <p>Nutricionista e Mentora de Nutris<br>
+        Av. Senador Ruy Carneiro, 303 — Sala 1403<br>
+        Brisamar, João Pessoa – PB, 58039-180</p>
+      </div>
+      <div>
+        <h4>Contato</h4>
+        <p>
+          <a href="tel:+5583877225215">+55 83 8772-5215</a><br>
+          <a href="mailto:nutrikarinacaminha@gmail.com">nutrikarinacaminha@gmail.com</a><br>
+          <a href="#" class="wa-link">Falar no WhatsApp</a>
+        </p>
+      </div>
+      <div>
+        <h4>Institucional</h4>
+        <p>
+          <a href="#">CRN</a><br>
+          <a href="https://www.instagram.com/nutrikarinacaminha" target="_blank" rel="noopener">@nutrikarinacaminha</a><br>
+          <a href="#">Política de Privacidade</a>
+        </p>
+      </div>
+    </div>
+    <div class="footer-bottom fade-up" style="--d:2;">
+      <span>© 2026 Karina Caminha. Todos os direitos reservados.</span>
+      <span>Nutrição Estética Feminina</span>
+    </div>
+  </div>
+</footer>
+
+<a href="#" id="wa-float" target="_blank" rel="noopener" class="wa-float" aria-label="Falar no WhatsApp">
+  <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.38 5.07L2 22l5.06-1.33A9.94 9.94 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2Zm0 18c-1.6 0-3.09-.44-4.36-1.2l-.31-.19-3.01.79.8-2.93-.2-.3A7.94 7.94 0 0 1 4 12c0-4.41 3.59-8 8-8s8 3.59 8 8-3.59 8-8 8Zm4.36-5.86c-.24-.12-1.43-.71-1.65-.79-.22-.08-.38-.12-.55.12-.16.24-.63.79-.77.95-.14.16-.28.18-.52.06-.24-.12-1.01-.37-1.92-1.19-.71-.63-1.19-1.42-1.33-1.66-.14-.24-.01-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.32-.75-1.81-.2-.48-.4-.41-.55-.42h-.47c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.12 3.64.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.43-.58 1.63-1.15.2-.56.2-1.04.14-1.15-.06-.1-.22-.16-.46-.28Z" fill="white"/></svg>
+</a>
+
+<script>
+  const WA_NUMBER_LINK = "https://api.whatsapp.com/message/7WHQG6TWAQR5B1?autoload=1&app_absent=0";
+  const MSG_GENERAL = "Olá, Karina! Gostaria de saber mais sobre o acompanhamento nutricional.";
+  const MSG_CTA_FINAL = "Olá, Karina! Quero agendar uma conversa sobre acompanhamento nutricional.";
+
+  function buildLink(base, message){
+    return base + "&text=" + encodeURIComponent(message);
+  }
+
+  document.querySelectorAll('.wa-link, #nav-wa, #nav-wa-mobile, #hero-wa-primary, .hero-wa-secondary, #wa-float').forEach(el=>{
+    const message = el.dataset.waMessage || MSG_GENERAL;
+    el.setAttribute('href', buildLink(WA_NUMBER_LINK, message));
+  });
+  document.querySelector('.final-cta .wa-link').setAttribute('href', buildLink(WA_NUMBER_LINK, MSG_CTA_FINAL));
+
+  const burger = document.getElementById('burger');
+  const menu = document.getElementById('mobile-menu');
+  burger.addEventListener('click', ()=>{
+    menu.classList.toggle('open');
+    burger.textContent = menu.classList.contains('open') ? '✕' : '☰';
+  });
+  menu.querySelectorAll('a').forEach(a=>a.addEventListener('click', ()=>{
+    menu.classList.remove('open'); burger.textContent = '☰';
+  }));
+
+  document.querySelectorAll('.faq-item').forEach(item=>{
+    const q = item.querySelector('.faq-q');
+    const a = item.querySelector('.faq-a');
+    q.addEventListener('click', ()=>{
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i=>{
+        i.classList.remove('open');
+        i.querySelector('.faq-a').style.maxHeight = null;
+      });
+      if(!isOpen){
+        item.classList.add('open');
+        a.style.maxHeight = a.scrollHeight + 'px';
+      }
+    });
+  });
+
+  // Split headings into words for staggered reveal-on-scroll
+  document.querySelectorAll('.split-parent').forEach(el=>{
+    const isCenter = el.classList.contains('center-split');
+    const words = el.textContent.trim().split(/\s+/);
+    el.innerHTML = words.map((w,i)=>`<span class="split-word" style="--i:${i}">${w}${i<words.length-1?'&nbsp;':''}</span>`).join('');
+    if(isCenter) el.style.textAlign = 'center';
+  });
+
+  const scrollItems = [...document.querySelectorAll('.reveal, .reveal-scale, .fade-up, .split-parent')];
+
+  // Aplica o atraso progressivo em JavaScript para funcionar em todos os navegadores.
+  scrollItems.forEach(el=>{
+    const delay = Number(el.style.getPropertyValue('--d')) || 0;
+    if(!el.classList.contains('split-parent')) el.style.transitionDelay = `${delay * 110}ms`;
+  });
+
+  const showItem = el => el.classList.add('in');
+
+  if('IntersectionObserver' in window){
+    const io = new IntersectionObserver((entries, observer)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          showItem(entry.target);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.08, rootMargin:'0px 0px -70px'});
+    scrollItems.forEach(el=>io.observe(el));
+  } else {
+    const revealOnScroll = ()=>{
+      const triggerPoint = window.innerHeight * 0.88;
+      scrollItems.forEach(el=>{
+        if(!el.classList.contains('in') && el.getBoundingClientRect().top < triggerPoint) showItem(el);
+      });
+    };
+    window.addEventListener('scroll', revealOnScroll, {passive:true});
+    window.addEventListener('resize', revealOnScroll);
+    revealOnScroll();
+  }
+</script>
+
+</body>
+</html>
