@@ -341,6 +341,33 @@
   .faq-a{max-height:0;overflow:hidden;transition:max-height .45s ease;}
   .faq-a p{padding-bottom:26px;color:var(--ink-soft);font-size:14.5px;max-width:660px;}
 
+  /* ---------- LOCALIZAÇÃO ---------- */
+  .location{padding:110px 0;}
+  .location-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+  .location-details{display:flex;flex-direction:column;gap:22px;margin:32px 0 34px;}
+  .location-item{display:flex;gap:16px;align-items:flex-start;}
+  .location-icon{
+    width:44px;height:44px;border-radius:50%;flex-shrink:0;
+    background:linear-gradient(150deg,var(--rose-bg) 0%, #fff 100%);
+    border:1px solid var(--rose-deep);
+    display:flex;align-items:center;justify-content:center;color:var(--gold-deep);
+    box-shadow:0 8px 16px rgba(217,168,166,0.20);
+  }
+  .location-item h4{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;margin-bottom:4px;color:var(--ink);}
+  .location-item p{font-size:14px;color:var(--ink-soft);}
+  .location-cta{display:flex;flex-wrap:wrap;gap:16px;align-items:center;}
+  .location-map{
+    position:relative;border-radius:6px 6px 60px 6px;overflow:hidden;
+    aspect-ratio:4/3.4;
+    box-shadow:0 40px 70px -22px rgba(46,42,40,0.26), 0 0 0 8px rgba(239,217,214,0.5);
+    border:1px solid var(--line);
+  }
+  .location-map iframe{width:100%;height:100%;}
+  @media(max-width:940px){
+    .location-grid{grid-template-columns:1fr;}
+    .location-map{order:-1;max-width:520px;margin:0 auto;aspect-ratio:4/3;}
+  }
+
   /* ---------- CTA FINAL ---------- */
   .final-cta{
     padding:110px 0;
@@ -404,6 +431,7 @@
         <li><a href="#diferenciais">Diferenciais</a></li>
         <li><a href="#como-funciona">Como funciona</a></li>
         <li><a href="#duvidas">Dúvidas</a></li>
+        <li><a href="#localizacao">Localização</a></li>
       </ul>
     </nav>
     <a class="nav-cta" id="nav-wa" href="#" target="_blank" rel="noopener"><span>Falar no WhatsApp</span></a>
@@ -416,6 +444,7 @@
     <a href="#diferenciais">Diferenciais</a>
     <a href="#como-funciona">Como funciona</a>
     <a href="#duvidas">Dúvidas</a>
+    <a href="#localizacao">Localização</a>
     <a class="nav-cta" id="nav-wa-mobile" href="#" target="_blank" rel="noopener"><span>Falar no WhatsApp</span></a>
   </div>
 </header>
@@ -599,6 +628,66 @@
       <div class="faq-item reveal" style="--d:5;">
         <button class="faq-q">Karina atende nutricionistas? <span class="plus">+</span></button>
         <div class="faq-a"><p>Sim, também oferece mentoria para nutricionistas interessadas em empreendedorismo, gestão de carreira e crescimento no consultório.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="location grain-rose" id="localizacao">
+  <div class="wrap">
+    <div class="location-grid">
+      <div class="location-info">
+        <span class="eyebrow reveal">Localização</span>
+        <h2 class="split-parent">Onde encontrar o consultório</h2>
+        <div class="rule reveal" style="--d:1;"></div>
+        <p class="fade-up" style="--d:2;">Atendimento presencial em um espaço pensado para o seu conforto, no coração de João Pessoa — com possibilidade de acompanhamento online para quem preferir.</p>
+
+        <div class="location-details fade-up" style="--d:3;">
+          <div class="location-item">
+            <div class="location-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-4.5-9.5-9C.7 8 2 4 6 3.6c2.2-.2 3.8 1 4.5 2.4C11.2 4.6 12.8 3.4 15 3.6c4 .4 5.3 4.4 3.5 8.4C16 16.5 12 21 12 21Z"/></svg>
+            </div>
+            <div>
+              <h4>Endereço</h4>
+              <p>Av. Senador Ruy Carneiro, 303 — Sala 1403<br>Brisamar, João Pessoa – PB, 58039-180</p>
+            </div>
+          </div>
+          <div class="location-item">
+            <div class="location-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            </div>
+            <div>
+              <h4>Horário de atendimento</h4>
+              <p>Segunda a sexta, das 8h às 18h<br>Atendimento online conforme disponibilidade</p>
+            </div>
+          </div>
+          <div class="location-item">
+            <div class="location-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4v16h16"/><path d="M8 15l3-4 3 3 4-6"/></svg>
+            </div>
+            <div>
+              <h4>Referência</h4>
+              <p>Bairro de Brisamar, próximo à orla de João Pessoa, com fácil acesso e estacionamento nas proximidades.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="location-cta fade-up" style="--d:4;">
+          <a href="https://www.google.com/maps/search/?api=1&query=Av.+Senador+Ruy+Carneiro,+303+-+Sala+1403,+Brisamar,+Jo%C3%A3o+Pessoa+-+PB,+58039-180" target="_blank" rel="noopener" class="btn-primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8"><path d="M12 21s-7-4.5-9.5-9C.7 8 2 4 6 3.6c2.2-.2 3.8 1 4.5 2.4C11.2 4.6 12.8 3.4 15 3.6c4 .4 5.3 4.4 3.5 8.4C16 16.5 12 21 12 21Z"/></svg>
+            <span>Ver rota no Google Maps</span>
+          </a>
+          <a href="#" class="wa-link btn-ghost">Prefiro atendimento online →</a>
+        </div>
+      </div>
+
+      <div class="location-map reveal-scale">
+        <iframe
+          src="https://www.google.com/maps?q=Av.+Senador+Ruy+Carneiro,+303,+Brisamar,+Jo%C3%A3o+Pessoa+-+PB,+58039-180&output=embed"
+          width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Mapa de localização do consultório de Karina Caminha">
+        </iframe>
       </div>
     </div>
   </div>
